@@ -1,2 +1,4 @@
 # maestro
-Here's a succinct and informative GitHA powerful orchestration tool for managing and automating operations across multiple Git repositories and other sources. Simplify your developer workspace by streamlining tasks and workflows across diverse repositories with ease.
+A powerful orchestration tool designed to take the pain out of managing complex workspaces.  Maestro can quickly create, update, clean, or perform other operations across an entire workspace.  Workspace configuration can be shared and used to quickly onboard and sync workspaces.  
+
+Maestro also allows you to analyze and view of the state of your workspace and the underlying repositories it contains.
