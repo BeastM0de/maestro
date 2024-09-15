@@ -1,16 +1,33 @@
 # maestro
-A powerful orchestration tool designed to take the pain out of managing complex workspaces.  Maestro can quickly create, update, clean, and perform other operations across an entire workspace.  Workspace configuration can be shared and used to quickly onboard and sync workspaces.  
+Maestro is a powerful orchestration tool designed to take the pain out of managing complex workspaces.  Maestro can quickly create, sync, update, and perform other operations across an entire workspace.  Workspace state is stored as sharable configuration files that can be used to quickly initialize and sync workspaces.  
 
-Maestro also allows you to analyze and view of the state of your workspace and the underlying repositories it contains.
+Maestro also allows you to view, analyze, and query against your workspace and the underlying repositories it contains.
 
-## Setup
+Requirements
+Python v3.9+
+
+Installation
 ```bash
 pip install maestro
-
-maestro --init
 ```
 
-## Usage
+## Setup
+To initialize a new workspace
+```bash
+maestro --init
+```
+To 
+
+## Usage 
+```bash
+# 
+maestro --pull
+maestro --
+
+maestro --cmd CMD
+```
+Options
 
 ## Configuration 
+
 
