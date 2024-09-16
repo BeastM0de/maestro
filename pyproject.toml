@@ -1,0 +1,56 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "maestro"
+dynamic = ["version"]
+description = "Maestro is a powerful orchestration tool designed to take the pain out of managing complex workspaces. "
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Jon Cappella", email = "jonacappella@gmail.com" },
+]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.optional-dependencies]
+
+standard = []
+
+all = []
+
+[project.scripts]
+fastapi = "maestro.cli:main"
+
+[tool.pdm]
+version = { source = "file", path = "maestro/__init__.py" }
+distribution = true
+
+[tool.pdm.build]
+source-includes = [
+    "tests/",
+    "src/",
+    "requirements*.txt",
+    "scripts/"
+]
