@@ -35,17 +35,17 @@ maestro --cmd CMD
 `--filter -f FILTER`
 Apply a filter to the command being run.
 
---profile -p PROFILE 
+`--profile -p PROFILE`
 The workspace profile to use.
 
 ## Configuration 
-
+```
 $HOME/.maestro
 credentials
 settings 
 workspace
 workspace-{profle}
-
+```
 
 
 
