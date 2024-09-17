@@ -31,9 +31,17 @@ maestro --cmd CMD
 ```
 ### Options
 `--filter -f FILTER`
-Apply a filter to 
+Apply a filter to the command being run.
 
 
 ## Configuration 
+
+$HOME/.maestro
+credentials
+settings 
+workspace
+workspace-{profle}
+
+
 
 
