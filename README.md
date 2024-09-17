@@ -25,7 +25,9 @@ maestro --init --config-file FILE
 ```bash
 # 
 maestro --pull
-maestro --
+maestro --import
+maestro --clean
+maestro --stat
 
 maestro --cmd CMD
 ```
@@ -33,6 +35,8 @@ maestro --cmd CMD
 `--filter -f FILTER`
 Apply a filter to the command being run.
 
+--profile -p PROFILE 
+The workspace profile to use.
 
 ## Configuration 
 
