@@ -31,15 +31,17 @@ maestro --stat
 
 maestro --cmd CMD
 ```
+
 ### Options
+
 `--filter -f FILTER`
 Apply a filter to the command being run.
 
 `--profile -p PROFILE`
 The workspace profile to use.
 
-Format output as JSON.
 `--json`
+Format output as JSON.
 
 ## Configuration 
 Maestro has two levels of configuration, global and workspace.  Both are stored in `.maestro` directories in `$HOME` and the workspace root respectively.
