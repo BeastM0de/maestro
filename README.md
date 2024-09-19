@@ -4,7 +4,7 @@ Git Maestro is a powerful orchestration tool designed to take the pain out of ma
 Maestro also allows you to view, analyze, and query against your workspace and the underlying repositories it contains.
 
 Requirements
-Python v3.9+
+Python v3.12+
 
 Installation
 ```bash
@@ -38,7 +38,11 @@ Apply a filter to the command being run.
 `--profile -p PROFILE`
 The workspace profile to use.
 
+Format output as JSON.
+`--json`
+
 ## Configuration 
+Maestro has two levels of configuration, global and workspace.  Both are stored in `.maestro` directories in `$HOME` and the workspace root respectively.
 ```
 $HOME/.maestro
 credentials
