@@ -44,6 +44,9 @@ The workspace profile to use.
 `--json`
 Format output as JSON.
 
+`--save-alias ALIAS=CMD`
+Save an alias for a command
+
 ## Configuration 
 Maestro has two levels of configuration, global and workspace.  Both are stored in `.maestro` directories in `$HOME` and the workspace root respectively.
 ```
