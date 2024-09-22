@@ -30,6 +30,7 @@ maestro --clean
 maestro --stat
 
 maestro --cmd CMD
+maestro --cmd CMD_ALIAS
 ```
 
 ### Options
