@@ -14,23 +14,23 @@ pip install maestro
 ## Setup
 To initialize a new workspace
 ```bash
-maestro --init
+maestro init
 ```
 Or to initialize from an existing configuration:
 ```bash
-maestro --init --config-file FILE
+maestro init --config-file FILE
 ```
 
 ## Usage 
 ```bash
 # 
-maestro --pull
-maestro --import
-maestro --clean
-maestro --stat
+maestro pull
+maestro import
+maestro clean
+maestro stat
 
-maestro --cmd CMD
-maestro --cmd CMD_ALIAS
+maestro run CMD
+maestro run CMD_ALIAS
 ```
 
 ### Options
