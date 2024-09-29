@@ -7,7 +7,7 @@ name = "maestro"
 dynamic = ["version"]
 description = "Maestro is a powerful orchestration tool designed to take the pain out of managing complex workspaces. "
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 authors = [
     { name = "Jon Cappella", email = "jonacappella@gmail.com" },
 ]
