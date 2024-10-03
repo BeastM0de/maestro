@@ -1,8 +1,8 @@
 package commands
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
+	"log/slog"
 )
 
 func init() {
@@ -17,7 +17,7 @@ var pullCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		fmt.Println("Hello from pull command")
+		slog.Info("Hello from pull command")
 
 		return nil
 	},

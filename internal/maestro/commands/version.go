@@ -1,8 +1,8 @@
 package commands
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
+	"log/slog"
 )
 
 func init() {
@@ -14,6 +14,6 @@ var versionCmd = &cobra.Command{
 	Short: "Print the version number of Maestro",
 	Long:  `All software has versions. This is Maestro's`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Maestro v0.1.0")
+		slog.Info("Maestro v0.1.0")
 	},
 }

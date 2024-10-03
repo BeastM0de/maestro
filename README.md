@@ -18,7 +18,7 @@ maestro init
 ```
 Or to initialize from an existing configuration:
 ```bash
-maestro init --config-file FILE
+maestro init --config-file [FILE URL]
 ```
 
 ## Usage 
@@ -28,6 +28,8 @@ maestro pull
 maestro import
 maestro clean
 maestro stat
+maestro add REPO
+maestro remove REPO
 
 maestro run CMD
 maestro run CMD_ALIAS

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"maestro/cmd/maestro/commands"
+	"maestro/internal/maestro/commands"
 	"os"
 )
 

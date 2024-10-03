@@ -1,18 +1,17 @@
 package commands
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"log/slog"
+	"os"
 )
 
 var (
 	// Used for flags.
 	cfgFile     string
 	userLicense string
-	verbose     *bool
+	Verbose     bool
 
 	rootCmd = &cobra.Command{
 		Use:   "maestro",
@@ -33,21 +32,25 @@ func init() {
 	rootCmd.PersistentFlags().StringP("author", "a", "Jon Cappella", "author name for copyright attribution")
 	rootCmd.PersistentFlags().StringVarP(&userLicense, "license", "l", "GPLv3", "name of license for the project")
 	rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
-	verbose = rootCmd.PersistentFlags().Bool("verbose", false, "verbose output")
+	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "verbose output")
 	viper.BindPFlag("author", rootCmd.PersistentFlags().Lookup("author"))
 	viper.BindPFlag("useViper", rootCmd.PersistentFlags().Lookup("viper"))
 	viper.SetDefault("author", "Jon Cappella <jonacappella@gmail.com>")
 	viper.SetDefault("license", "GPLv3")
+
+	if Verbose == true {
+		slog.SetLogLoggerLevel(slog.LevelDebug)
+	}
 
 }
 
 func initConfig() {
 	if cfgFile != "" {
 		// Use config file from the flag.
-		logVerbose("Config file set: ", cfgFile)
+		slog.Debug("Config file set: ", cfgFile)
 		viper.SetConfigFile(cfgFile)
 	} else {
-		logVerbose("No config file set, using default $HOME/.maestro.yaml")
+		slog.Debug("No config file set, using default $HOME/.maestro.yaml")
 		// Find home directory.
 		home, err := os.UserHomeDir()
 		cobra.CheckErr(err)
@@ -61,12 +64,6 @@ func initConfig() {
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err == nil {
-		fmt.Println("Using config file:", viper.ConfigFileUsed())
-	}
-}
-
-func logVerbose(a ...any) {
-	if *verbose == true {
-		fmt.Println(a...)
+		slog.Debug("Using config file:", viper.ConfigFileUsed())
 	}
 }
