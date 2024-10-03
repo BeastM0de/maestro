@@ -6,6 +6,8 @@ import (
 )
 
 func init() {
+	initCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.maestro.yaml)")
+	initCmd.PersistentFlags().StringVar(&interactive, "interactive", "i", "", "interactive mode")
 	rootCmd.AddCommand(initCmd)
 }
 
@@ -17,7 +19,7 @@ var initCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		slog.Info("Hello from init command, using config file: ", cfgFile)
+		slog.Debug("Hello from init command, using config file: ", cfgFile)
 
 		return nil
 	},
