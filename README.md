@@ -30,6 +30,8 @@ maestro clean
 maestro stat
 maestro add REPO
 maestro remove REPO
+maestro list repos
+
 
 maestro run CMD
 maestro run CMD_ALIAS
@@ -43,7 +45,7 @@ Apply a filter to the command being run.
 `--profile -p PROFILE`
 The workspace profile to use.
 
-`--json`
+`--output json`
 Format output as JSON.
 
 `--save-alias ALIAS=CMD`
