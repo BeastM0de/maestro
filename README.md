@@ -4,7 +4,6 @@ Git Maestro is a powerful orchestration tool designed to take the pain out of ma
 Maestro also allows you to view, analyze, and query against your workspace and the underlying repositories it contains.
 
 Requirements
-Python v3.12+
 
 Installation
 ```bash
