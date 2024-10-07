@@ -7,7 +7,7 @@ Requirements
 
 Installation
 ```bash
-pip install maestro
+apt-get install maestro
 ```
 
 ## Setup
@@ -17,7 +17,7 @@ maestro init
 ```
 Or to initialize from an existing configuration:
 ```bash
-maestro init --config-file [FILE URL]
+maestro clone [FILE URL]
 ```
 
 ## Usage 
