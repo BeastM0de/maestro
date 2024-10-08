@@ -29,7 +29,7 @@
 | ------------- | -------------------------------- | ------------------------------------- |
 | Commands      | maestro run CMD                  | Run a command against all repos       |
 |               | maestro run CMD --group GROUP    | Run a command against a set of repos  |
-|               | maestro run CMD --filter GROUP   | Run a command against a set of repos  |
+|               | maestro run CMD --filter GROUP   | Run a command against a group         |
 |               | maestro run CMD --repo REPO      | Run a command against a specific repo |
 | ------------- | -------------------------------- | ------------------------------------- |
 

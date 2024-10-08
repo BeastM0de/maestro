@@ -3,23 +3,27 @@ package commands
 import (
 	"github.com/spf13/cobra"
 	"log/slog"
+	"maestro/internal/maestro/workspace"
 )
 
 func init() {
-	initCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.maestro.yaml)")
 	rootCmd.AddCommand(initCmd)
 }
 
 var initCmd = &cobra.Command{
-	Use:     "init",
-	Short:   "Initialize a new workspace, either from scratch or from a configuration file",
+	Use:     "init [name]",
+	Short:   "Initialize a new workspace.",
+	Long:    "Initialize a new workspace in either the current directory or a new directory with the name provided.",
 	Example: "maestro init",
-	Args: func(cmd *cobra.Command, args []string) error {
-		return nil
-	},
+	Args:    cobra.MaximumNArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Debug("Hello from init command, using config file: ", cfgFile)
 
-		return nil
+		var name string = nil
+		if len(args) == 1 {
+			name = args[0]
+		}
+
+		return workspace.InitializeWorkspace(name)
 	},
 }
