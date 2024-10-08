@@ -1,5 +1,5 @@
 package workspace
 
-func init() {
+func initWorkspace(workspaceHome string) {
 
 }

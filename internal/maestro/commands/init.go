@@ -5,13 +5,8 @@ import (
 	"log/slog"
 )
 
-var (
-	interactive bool
-)
-
 func init() {
 	initCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.maestro.yaml)")
-	initCmd.PersistentFlags().BoolVarP(&interactive, "interactive", "i", false, "interactive mode")
 	rootCmd.AddCommand(initCmd)
 }
 
