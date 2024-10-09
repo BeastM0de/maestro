@@ -6,7 +6,7 @@ import (
 )
 
 func InitializeWorkspace(name string) {
-	var currentWorkingDirectory string = getCurrentWorkingDirectory()
+	var currentWorkingDirectory = getCurrentWorkingDirectory()
 	var workspaceHome string
 
 	if name == "" {
@@ -20,7 +20,7 @@ func InitializeWorkspace(name string) {
 func getCurrentWorkingDirectory() string {
 	path, err := os.Getwd()
 	if err != nil {
-		slog.Println("Error getting current working directory")
+		slog.Debug("Error getting current working directory")
 		return ""
 	} else {
 	}
