@@ -19,7 +19,7 @@ var initCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Debug("Hello from init command, using config file: ", cfgFile)
 
-		var name string = nil
+		var name string
 		if len(args) == 1 {
 			name = args[0]
 		}

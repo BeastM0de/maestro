@@ -2,27 +2,40 @@ package workspace
 
 import (
 	"log/slog"
+	"maestro/internal/maestro/utils"
 	"os"
+	"path/filepath"
 )
 
 func InitializeWorkspace(name string) {
-	var currentWorkingDirectory = getCurrentWorkingDirectory()
-	var workspaceHome string
 
-	if name == "" {
-		// Initialize workspace in current directory
-	} else {
-		// Initialize workspace in new directory with the name provided
+	var workspaceHome, err = createWorkspaceHome(name)
+
+	if err != nil {
+		slog.Error("Error creating workspace home: ", err)
+		return
 	}
+	slog.Debug("Workspace home: ", workspaceHome)
 
 }
 
-func getCurrentWorkingDirectory() string {
-	path, err := os.Getwd()
+func createWorkspaceHome(name string) (string, error) {
+	var workspaceHome string
+	var currentWorkingDirectory, err = os.Getwd()
 	if err != nil {
-		slog.Debug("Error getting current working directory")
-		return ""
-	} else {
+		return "", Error("Error getting current working directory")
 	}
-	return path
+
+	if name != "" {
+		workspaceHome = filepath.Join(currentWorkingDirectory, name)
+
+		err := utils.EnsurePathExists(workspaceHome)
+		if err != nil {
+			return "", err
+		}
+
+	} else {
+		workspaceHome = currentWorkingDirectory
+	}
+	return workspaceHome, nil
 }
