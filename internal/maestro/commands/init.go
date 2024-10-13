@@ -24,6 +24,11 @@ var initCmd = &cobra.Command{
 			name = args[0]
 		}
 
-		return workspace.InitializeWorkspace(name)
+		err := workspace.InitializeWorkspace(name)
+
+		if err != nil {
+			slog.Error("Error initializing workspace: ", err)
+		}
+		return err
 	},
 }

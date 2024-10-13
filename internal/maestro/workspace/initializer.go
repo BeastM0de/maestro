@@ -1,29 +1,30 @@
 package workspace
 
 import (
+	"fmt"
 	"log/slog"
 	"maestro/internal/maestro/utils"
 	"os"
 	"path/filepath"
 )
 
-func InitializeWorkspace(name string) {
+func InitializeWorkspace(name string) error {
 
 	var workspaceHome, err = createWorkspaceHome(name)
 
 	if err != nil {
-		slog.Error("Error creating workspace home: ", err)
-		return
+		return err
 	}
 	slog.Debug("Workspace home: ", workspaceHome)
 
+	return err
 }
 
 func createWorkspaceHome(name string) (string, error) {
 	var workspaceHome string
 	var currentWorkingDirectory, err = os.Getwd()
 	if err != nil {
-		return "", Error("Error getting current working directory")
+		return "", fmt.Errorf("error getting current working directory")
 	}
 
 	if name != "" {
