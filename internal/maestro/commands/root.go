@@ -9,9 +9,8 @@ import (
 
 var (
 	// Used for flags.
-	cfgFile     string
-	userLicense string
-	Verbose     bool
+	cfgFile string
+	Verbose bool
 
 	rootCmd = &cobra.Command{
 		Use:   "maestro",
@@ -28,15 +27,13 @@ func Execute() error {
 func init() {
 	cobra.OnInitialize(initConfig)
 
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "dry-run", "", "Run in dry-run mode where changes or commands are not applied")
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.maestro.yaml)")
-	rootCmd.PersistentFlags().StringP("author", "a", "Jon Cappella", "author name for copyright attribution")
-	rootCmd.PersistentFlags().StringVarP(&userLicense, "license", "l", "GPLv3", "name of license for the project")
 	rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
 	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "verbose output")
-	viper.BindPFlag("author", rootCmd.PersistentFlags().Lookup("author"))
 	viper.BindPFlag("useViper", rootCmd.PersistentFlags().Lookup("viper"))
-	viper.SetDefault("author", "Jon Cappella <jonacappella@gmail.com>")
-	viper.SetDefault("license", "GPLv3")
+	viper.Set("name", "maestro")
+	viper.Set("version", "0.0.1")
 
 	if Verbose == true {
 		slog.SetLogLoggerLevel(slog.LevelDebug)
