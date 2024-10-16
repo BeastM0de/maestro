@@ -1,6 +1,8 @@
 package engine
 
-type Command func(project Repository) error
+import "maestro/internal/maestro"
+
+type Command func(project maestro.Repository) error
 type Filter func(project string) bool
 
 func run(cmd Command, filter Filter) error {
