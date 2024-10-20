@@ -2,10 +2,21 @@ package engine
 
 import "maestro/internal/maestro"
 
-type Command func(project maestro.Repository) error
+type Cmd func(project maestro.Repository) error
 type Filter func(project string) bool
 
-func run(cmd Command, filter Filter) error {
+type Command struct {
+	Cmd Cmd
+	Filter Filter
+}
+
+func GitPullCommand() Command {
+	return func(project maestro.Repository) error {
+		return project.Pull()
+	}
+}
+
+func Run(cmd Command) error {
 	for project := range projects {
 		if filter != nil {
 			if !filter(project) {
