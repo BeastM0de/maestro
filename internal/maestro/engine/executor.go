@@ -1,31 +1,29 @@
 package engine
 
-import "maestro/internal/maestro"
+import (
+	"log/slog"
+	"maestro/internal/maestro"
+)
 
-type Cmd func(project maestro.Repository) error
+type ProjectCommand func(project maestro.Repository) error
 type Filter func(project string) bool
 
 type Command struct {
-	Cmd Cmd
+	Run    ProjectCommand
 	Filter Filter
 }
 
-func GitPullCommand() Command {
-	return func(project maestro.Repository) error {
-		return project.Pull()
-	}
-}
-
-func Run(cmd Command) error {
+func Run(command Command) error {
 	for project := range projects {
-		if filter != nil {
-			if !filter(project) {
+		if command.Filter != nil {
+			if !command.Filter(project) {
+				slog.Debug("Skipping project %s", project.Name)
 				continue
 			}
 		}
-		if err := cmd(project); err != nil {
+		if err := command.Run(project); err != nil {
 			return err
 		}
-
+	}
 	return nil
 }

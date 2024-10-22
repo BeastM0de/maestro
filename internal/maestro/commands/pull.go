@@ -23,9 +23,10 @@ var pullCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slog.Info("Hello from pull command")
 
-		filter := nil
+		var filter engine.Filter = nil
+
 		command := engine.Command{
-			Cmd:    git.Pull,
+			Run:    git.Pull,
 			Filter: filter,
 		}
 
