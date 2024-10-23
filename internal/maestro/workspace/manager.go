@@ -1,12 +1,18 @@
 package workspace
 
-import "maestro/internal/maestro"
+import (
+	"log/slog"
+	"maestro/internal/maestro"
+)
 
-func Add(name string) {
+func AddResource(name string) (maestro.Resource, error) {
+	slog.Debug("Adding resource", name)
 	// Add a repository or group to the workspace
 
 	//determine resource type
 
+	var resource maestro.Repository
+	return nil, nil
 }
 
 func AddGroup(group maestro.Group) {

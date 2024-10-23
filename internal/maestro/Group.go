@@ -1,7 +1,7 @@
 package maestro
 
 type Group struct {
-	name         string
-	home         string
-	repositories []Repository
+	Name         string
+	Path         string
+	Repositories []Repository
 }

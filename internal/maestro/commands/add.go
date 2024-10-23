@@ -2,6 +2,7 @@ package commands
 
 import (
 	"github.com/spf13/cobra"
+	"log/slog"
 	"maestro/internal/maestro/workspace"
 )
 
@@ -17,7 +18,12 @@ var addCmd = &cobra.Command{
 		return nil
 	},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		workspace.Add(args[0])
+		repo, err := workspace.AddResource(args[0])
+
+		if err != nil {
+			return err
+		}
+		slog.Info("Repository added successfully: ", repo.Name)
 		return nil
 	},
 }
