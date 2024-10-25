@@ -11,8 +11,14 @@ func AddResource(name string) (maestro.Resource, error) {
 
 	//determine resource type
 
-	var resource maestro.Repository
+	var resourceType = getResourceType(name)
+
 	return nil, nil
+}
+
+func getResourceType(name string) string {
+	// Determine the type of resource
+	return "repository"
 }
 
 func AddGroup(group maestro.Group) {

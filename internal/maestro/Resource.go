@@ -1,8 +1,9 @@
 package maestro
 
 type Resource interface {
-	func Name() string
-	func Path() string
-	func Parent() Resource
-	func Children() []Resource
+	Name() string
+	Path() string
+	Url() string
+	Parent() Resource
+	Children() []Resource
 }
